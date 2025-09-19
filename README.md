@@ -1,1 +1,38 @@
-# yutoyuto_ticket_site
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ticket_site</title>
+<style>
+    body {font-family:sans-serif; background:#f5f5f5; text-align: center;}
+    h1 {color: #ff4081;}
+    .ticket {display: inline-block; margin: 20px; cursor: pointer; transition: transform 0.2s;}
+    .ticket img {width: 200px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0,3);}
+    .ticket:hover {transform: scale(1.05);}
+</style>
+</head>
+<body>
+<h1>チケット一覧</h1>
+<div class="ticket" onclick="checkAccess('お夜食券')">
+    <img src="midnight_snack.png" alt="お夜食券">
+    <p>お夜食券</p>
+</div>
+<div class="ticket" onclick="checkAccess('仲直り券')">
+    <img src="make_up.png" alt="仲直り券">
+    <p>仲直り券</p>
+</div>
+
+<script>
+    function checkAccess(ticketType) {
+        const urlParams=new URLSearchParams(window.location.search);
+        const key=urlParams.get('key');
+        if(key==='abcd1234'){
+            alert(ticketType + 'を使用しました！');
+        }
+        else{
+            alert('アクセス権限がありません');
+        }
+    }
+</script>
+</body>    
+</html>
